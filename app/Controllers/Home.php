@@ -6,6 +6,12 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        helper('auth');
+
+        if(logged_in() === true) {
+            echo "Sudah login #".user()->email;
+        } else {
+            echo "Belum login";
+        }
     }
 }
